@@ -3,7 +3,7 @@ import Image from "next/image";
 const HorizontalScroll = ({ children, options }) => {
     return (
         <div className="flex flex-col flex-nowrap overflow-x-scroll">
-            <label className="mb-2 col-span-2 text-sm font-medium text-gray-900 dark:text-white">
+            {/* <label className="mb-2 col-span-2 text-sm font-medium text-gray-900 dark:text-white">
                 {children}
             </label>
             <div className="flex">
@@ -19,7 +19,7 @@ const HorizontalScroll = ({ children, options }) => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
