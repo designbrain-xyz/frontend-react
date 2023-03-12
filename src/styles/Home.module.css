@@ -1,0 +1,61 @@
+.landing_page {
+    display: flex;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+.sidebar {
+    background-color: #F5F5F5;
+    width: 70px;
+}
+
+.description {
+    /* width: 50%; */
+    color: white;
+    padding: 100px 40px 20px 150px;
+    background-image:  linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                       url("../../public/landingPhoto.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-grow: 1;
+}
+
+.header {
+    /* font-size: 96px; */
+    font-size: 90px;
+    padding-bottom: 50px;
+}
+
+.showcases {
+    background-color: #03617E;
+    width: 40%;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.showcase {
+    width: 100%;
+    height: 31%;
+    /* background-color: white; */
+    border-radius: 15px;
+    /* background-image: url("../../public/landingPhoto.jpg"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.descr_btn {
+    display: flex;
+}
+/* .slider {
+    max-height: 30%;;
+} */
+
+@media (max-width: 1400px) {
+    .header {
+        font-size: 60px;
+    }
+}
