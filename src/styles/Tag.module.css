@@ -1,0 +1,28 @@
+.tag {
+    padding: 6px 10px;
+    background-color: #F7F8F9;
+    text-align: center;
+    height: 34px;
+
+    white-space: nowrap;
+    cursor: pointer;
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.not_selected {
+    color: black;
+}
+
+.selected {
+    background-color: #ECFDF5;
+    color: #064E3B;
+}
+
+.icon {}

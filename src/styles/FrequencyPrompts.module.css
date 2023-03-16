@@ -1,0 +1,92 @@
+.container {
+    width: 90%;
+    min-height: 100%;
+    border: 1px solid #E7EAEE;
+    border-radius: 4px;
+}
+
+.menu_sections {
+    border-radius: 4px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    background-color: white;
+    padding: 10px 10px;
+}
+
+.menu_sections::-webkit-scrollbar {
+    width: 24px;
+    /* ширина для вертикального скролла */
+    height: 5px;
+    /* высота для горизонтального скролла */
+    background-color: #143861;
+}
+
+/* ползунок скроллбара */
+.menu_sections::-webkit-scrollbar-thumb {
+    background-color: #064E3B;
+    border-radius: 9em;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+.menu_sections::-webkit-scrollbar-thumb:hover {
+    background-color: #253861;
+}
+
+
+.content {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-height: 65vh;
+    min-height: 65vh;
+    overflow-y: scroll;
+    /* direction: ltr; */
+}
+
+.content::-webkit-scrollbar {
+    width: 5px;
+    /* ширина для вертикального скролла */
+    /* высота для горизонтального скролла */
+    background-color: #143861;
+    
+}
+
+/* ползунок скроллбара */
+.content::-webkit-scrollbar-thumb {
+    background-color: #064E3B;
+    border-radius: 9em;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background-color: #F7F8F9;
+}
+
+
+.section {}
+
+.section_title {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E7EAEE;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    padding-top: 10px;
+}
+
+.add_section_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
