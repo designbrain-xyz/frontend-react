@@ -7,7 +7,7 @@ export default function Home() {
 
     return (
         <div className={styles.layout}>
-            <SidebarMenu />
+            {/* <SidebarMenu /> */}
             <div className={styles.left_col}>
                 <Parameters />
             </div>

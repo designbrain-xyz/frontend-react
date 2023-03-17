@@ -1,8 +1,15 @@
 .container {
-    width: 90%;
+
+    /* margin-top: 40px; */
+    width: 100%;
     min-height: 100%;
-    border: 1px solid #E7EAEE;
-    border-radius: 4px;
+    /* border: 1px solid #E7EAEE;
+    border-radius: 4px; */
+}
+
+.filter {
+    text-align: end;
+    padding-bottom: 20px;
 }
 
 .menu_sections {
@@ -15,7 +22,6 @@
     align-items: center;
 
     background-color: white;
-    padding: 10px 10px;
 }
 
 .menu_sections::-webkit-scrollbar {

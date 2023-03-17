@@ -1,6 +1,6 @@
 import styles from "@/styles/FrequencyPrompts.module.css"
 import SectionTag from "./SectionTag"
-import { BsPlusCircleDotted } from 'react-icons/bs'
+import { FiFilter } from 'react-icons/fi'
 import Tag from "./Tag"
 import { useState } from "react"
 
@@ -59,7 +59,7 @@ export default function FrequencyPrompts({selectTag}) {
 
     return (
         <div className={styles.container}>
-            <div className={styles.menu_sections}>
+            {/* <div className={styles.menu_sections}>
 
                 <div className={styles.add_section_btn}>
                     <BsPlusCircleDotted />
@@ -68,7 +68,12 @@ export default function FrequencyPrompts({selectTag}) {
                 {menu_sections.map((tag) => (
                     <SectionTag key={tag} tag={tag} />
                 ))}
+            </div> */}
+            <div className={styles.filter}>
+                Фильтр
+                <FiFilter />
             </div>
+
             <div className={styles.content}>
 
                 {tags.map((section) => (
