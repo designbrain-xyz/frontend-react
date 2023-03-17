@@ -3,6 +3,11 @@ import SectionTag from "./SectionTag"
 import { FiFilter } from 'react-icons/fi'
 import Tag from "./Tag"
 import { useState } from "react"
+import DocumentUpload from "./DocumentUpload"
+import TextField from '@mui/material/TextField';
+
+
+import Input from '@mui/material/Input';
 
 export default function Prompt({ selectTag }) {
     const menu_sections = [
@@ -99,6 +104,10 @@ export default function Prompt({ selectTag }) {
 
             </div>
 
+            {/* <div className={styles.document_upload}>
+                <DocumentUpload />
+            </div>
+
             <div className={styles.head}>
                 <div className={styles.img}>
 
@@ -107,7 +116,7 @@ export default function Prompt({ selectTag }) {
                     BedroomPhoto.png
                 </div>
                 <div className={styles.generate_btn}>Сгенерировать</div>
-            </div>
+            </div> */}
         </div>
     )
 }

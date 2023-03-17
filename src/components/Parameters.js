@@ -7,8 +7,35 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import FrequencyPrompts from "./FrequencyPrompts";
 import Prompt from "./Prompt";
+import Button from '@mui/material/Button';
+
+// import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 
 // import { styled } from "@mui/material/styles";
+
+const marks = [
+    {
+        value: 0,
+        label: '0',
+    },
+    {
+        value: 30,
+        label: '30',
+    },
+    {
+        value: 40,
+        label: '40',
+    },
+    {
+        value: 100,
+        label: '100',
+    },
+];
+
+function valuetext(value) {
+    return `${value}°C`;
+}
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -22,7 +49,7 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ }}>
+                <Box sx={{}}>
                     <Typography>{children}</Typography>
                 </Box>
                 // <Box sx={{ p: 3 }}>
@@ -64,16 +91,45 @@ export default function Parameters() {
                     </Tabs>
                 </Box>
                 <TabPanel value={value} index={0}>
-                    {promptTags}
-
+                    {/* {promptTags} */}
                     <Prompt selectTag={updateData} />
+                    <Button variant="outlined">Генерация</Button>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <FrequencyPrompts selectTag={updateData} />
                 </TabPanel>
-                {/* <TabPanel value={value} index={2}>
-                    Item Three
-                </TabPanel> */}
+                <TabPanel value={value} index={2}>
+                    <Box sx={{ width: 300 }}>
+                        <Slider
+                            aria-label="Custom marks"
+                            defaultValue={20}
+                            getAriaValueText={valuetext}
+                            step={10}
+                            valueLabelDisplay="auto"
+                            marks={marks}
+                        />
+                    </Box>
+                    <Box sx={{ width: 300 }}>
+                        <Slider
+                            aria-label="Custom marks"
+                            defaultValue={20}
+                            getAriaValueText={valuetext}
+                            step={10}
+                            valueLabelDisplay="auto"
+                            marks={marks}
+                        />
+                    </Box>
+                    <Box sx={{ width: 300 }}>
+                        <Slider
+                            aria-label="Custom marks"
+                            defaultValue={20}
+                            getAriaValueText={valuetext}
+                            step={10}
+                            valueLabelDisplay="auto"
+                            marks={marks}
+                        />
+                    </Box>
+                </TabPanel>
             </Box>
         </div>
     );

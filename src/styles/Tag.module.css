@@ -1,6 +1,10 @@
 .tag {
     padding: 6px 10px;
-    background-color: #F7F8F9;
+    background-color: white;
+
+    border-radius: 8px;
+    border: 1px solid rgb(205, 205, 205);
+
     text-align: center;
     height: 34px;
 
@@ -23,6 +27,8 @@
 .selected {
     background-color: #ECFDF5;
     color: #064E3B;
+
+    border: 1px solid #34bc98;
 }
 
 .icon {}

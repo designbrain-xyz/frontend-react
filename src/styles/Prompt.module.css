@@ -72,7 +72,7 @@
 
     overflow-y: scroll;
 
-    background-color: #F7F5F5;
+    background-color: #F7F8F9;
     border-radius: 10px;
 
     margin-right: 20px;
@@ -129,6 +129,7 @@
 
 
 .prompt {
+    min-height: 100%;
     width: 40%;
     position: relative;
     display: flex;
@@ -136,8 +137,9 @@
     flex-direction: column;
      /* border: 1px solid #E7EAEE; */
 
-     background-color: #F7F5F5;
+     background-color: #F7F8F9;
      border-radius: 10px;
+     justify-content: end;
 }
 
 .inpt {
@@ -172,4 +174,8 @@
     width: 200px;
     height: 30px;
     background-color: aquamarine;
+}
+
+.document_upload {
+    width: 50%;
 }
