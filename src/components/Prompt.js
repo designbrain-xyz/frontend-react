@@ -1,10 +1,10 @@
-import styles from "@/styles/FrequencyPrompts.module.css"
+import styles from "@/styles/Prompt.module.css"
 import SectionTag from "./SectionTag"
 import { FiFilter } from 'react-icons/fi'
 import Tag from "./Tag"
 import { useState } from "react"
 
-export default function FrequencyPrompts({selectTag}) {
+export default function Prompt({ selectTag }) {
     const menu_sections = [
         "Стили", "Страны", "Комнаты", "Художники / дизайнеры", "Другое", "Прочее"
     ]
@@ -58,37 +58,55 @@ export default function FrequencyPrompts({selectTag}) {
     }
 
     return (
-        <div className={styles.container}>
-            {/* <div className={styles.menu_sections}>
+        <div className={styles.prompt_tab}>
+            <div className={styles.promt_container}>
+                <div className={styles.content}>
+                    {tags.map((section) => (
+                        <div className={styles.section}>
+                            <div className={styles.section_title}>
+                                {section.section_title}
+                            </div>
 
-                <div className={styles.add_section_btn}>
-                    <BsPlusCircleDotted />
+                            <div className={styles.tags}>
+                                {section.tags.map((tag) => (
+                                    <Tag key={tag} tag={tag} updateData={updateData} />
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
 
-                {menu_sections.map((tag) => (
-                    <SectionTag key={tag} tag={tag} />
-                ))}
-            </div> */}
-            {/* <div className={styles.filter}>
-                Фильтр
-                <FiFilter />
-            </div> */}
+                {/* <hr /> */}
+                <div className={styles.prompt}>
 
-            <div className={styles.content}>
+                    <div className={styles.prompt_tags}>
 
-                {tags.map((section) => (
-                    <div className={styles.section}>
-                        <div className={styles.section_title}>
-                            {section.section_title}
-                        </div>
-
-                        <div className={styles.tags}>
-                            {section.tags.map((tag) => (
-                                <Tag key={tag} tag={tag} updateData={updateData} />
-                            ))}
-                        </div>
                     </div>
-                ))}
+
+                    <input className={styles.inpt} />
+
+                    {/* <div className={styles.head}>
+                        <div className={styles.img}>
+
+                        </div>
+                        <div>
+                            BedroomPhoto.png
+                        </div>
+                    </div> */}
+
+                </div>
+
+
+            </div>
+
+            <div className={styles.head}>
+                <div className={styles.img}>
+
+                </div>
+                <div>
+                    BedroomPhoto.png
+                </div>
+                <div className={styles.generate_btn}>Сгенерировать</div>
             </div>
         </div>
     )

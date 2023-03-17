@@ -6,6 +6,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import FrequencyPrompts from "./FrequencyPrompts";
+import Prompt from "./Prompt";
+
+// import { styled } from "@mui/material/styles";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -19,9 +22,12 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ }}>
                     <Typography>{children}</Typography>
                 </Box>
+                // <Box sx={{ p: 3 }}>
+                //     <Typography>{children}</Typography>
+                // </Box>
             )}
         </div>
     );
@@ -49,20 +55,21 @@ export default function Parameters() {
 
     return (
         <div className={styles.content}>
-            <Box sx={{ width: '100%' }}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <Tabs value={value} onChange={handleChange} centered>
+            <Box>
+                <Box >
+                    <Tabs value={value} onChange={handleChange} >
                         <Tab label="Prompt" {...a11yProps(0)} />
                         <Tab label="Frequency prompts" {...a11yProps(1)} />
                         <Tab label="setting" {...a11yProps(2)} />
-                        <Tab label="working mode" {...a11yProps(2)} />
                     </Tabs>
                 </Box>
                 <TabPanel value={value} index={0}>
                     {promptTags}
+
+                    <Prompt selectTag={updateData} />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <FrequencyPrompts selectTag={updateData}/>
+                    <FrequencyPrompts selectTag={updateData} />
                 </TabPanel>
                 {/* <TabPanel value={value} index={2}>
                     Item Three

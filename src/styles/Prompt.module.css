@@ -1,11 +1,26 @@
-.container {
 
-    /* margin-top: 40px; */
-    width: 80%;
-    min-height: 100%;
-    /* border: 1px solid #E7EAEE; */
-    /* border-radius: 4px; */
+
+.prompt_tab {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+    position: relative;
+    align-items: end;
 }
+
+
+.promt_container {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    /* border: 1px solid #E7EAEE; */
+    border-radius: 5px;
+}
+
+
 
 .filter {
     text-align: end;
@@ -46,12 +61,21 @@
 
 
 .content {
+    width: 50%;
     padding: 20px 20px;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-height: 65vh;
-    min-height: 65vh;
+    max-height: 52vh;
+    min-height: 52vh;
+
+
+    overflow-y: scroll;
+
+    background-color: #F7F5F5;
+    border-radius: 10px;
+
+    margin-right: 20px;
 
     /* width: 50%; */
     /* overflow-y: scroll; */
@@ -63,6 +87,7 @@
     /* ширина для вертикального скролла */
     /* высота для горизонтального скролла */
     background-color: #143861;
+    border-radius: 10px;
 
 }
 
@@ -71,10 +96,12 @@
     background-color: #064E3B;
     border-radius: 9em;
     box-shadow: inset 1px 1px 10px #f3faf7;
+    border-radius: 10px;
 }
 
 .content::-webkit-scrollbar-thumb:hover {
     background-color: #F7F8F9;
+    border-radius: 10px;
 }
 
 
@@ -98,4 +125,51 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+
+.prompt {
+    width: 40%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+     /* border: 1px solid #E7EAEE; */
+
+     background-color: #F7F5F5;
+     border-radius: 10px;
+}
+
+.inpt {
+    margin-bottom: 10px;
+    /* position: absolute; */
+    bottom: 0;
+    min-width: 100%;
+    padding:10px
+}
+
+.head {
+    /* margin-top: 30px; */
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    background-color: #064E3B;
+    height: 100%;
+    width: 100px;
+    margin-right: 20px;
+}
+.prompt_tags {
+    width: 100%;
+    height: 60%;
+}
+
+.generate_btn {
+    /* text-align: end; */
+    width: 200px;
+    height: 30px;
+    background-color: aquamarine;
 }
