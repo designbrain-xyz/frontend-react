@@ -1,5 +1,5 @@
 import ImageSlider from "@/components/ImageSlider";
-import LandingHeader from "@/components/LandingHeader";
+
 import styles from '@/styles/Home.module.css'
 import Link from "next/link";
 import ReactBeforeSliderComponent from 'react-before-after-slider-component';

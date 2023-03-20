@@ -8,6 +8,11 @@
         /* overflow: hidden; */
 }
 
+
+
+.swiper-button-prev::after, .swiper-button-next::after {
+    color: #000000;
+}
 /* ::-webkit-scrollbar {
     width: 8px;
 

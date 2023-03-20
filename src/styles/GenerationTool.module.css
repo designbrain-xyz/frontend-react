@@ -3,3 +3,11 @@
     padding: 70px 0px;
     gap: 15px;
 }
+
+.prompt_container {
+    width: 50%;
+}
+
+.result_container {
+    width: 50%;
+}

@@ -1,7 +1,23 @@
 import styles from "@/styles/Prompt.module.css"
 import Tag from "./Tag"
+import { Collapse } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+// import { Input } from 'antd';
+
+
+const { Panel } = Collapse;
+
+const onChange = (key) => {
+    console.log(key);
+};
 
 export default function Prompt({ selectTag }) {
+
+    const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
     const menu_sections = [
         "Стили", "Страны", "Комнаты", "Художники / дизайнеры", "Другое", "Прочее"
     ]
@@ -55,60 +71,40 @@ export default function Prompt({ selectTag }) {
     }
 
     return (
-        <div className={styles.prompt_tab}>
-            <div className={styles.promt_container}>
-                <div className={styles.content}>
+        <div>
+            <div className={styles.clue_tags_container}>
+                <Collapse defaultActiveKey={['1']} onChange={onChange}>
                     {tags.map((section) => (
-                        <div className={styles.section}>
-                            <div className={styles.section_title}>
-                                {section.section_title}
-                            </div>
-
+                        <Panel header={section.section_title} key={section.section_title}>
                             <div className={styles.tags}>
                                 {section.tags.map((tag) => (
                                     <Tag key={tag} tag={tag} updateData={updateData} />
                                 ))}
                             </div>
-                        </div>
+                        </Panel>
                     ))}
-                </div>
+                </Collapse>
+            </div>
 
-                {/* <hr /> */}
-                <div className={styles.prompt}>
-
-                    <div className={styles.prompt_tags}>
-
-                    </div>
-
-                    <input className={styles.inpt} />
-{/*
-                    <div className={styles.head}>
-                        <div className={styles.img}>
-
-                        </div>
-                        <div>
-                            BedroomPhoto.png
-                        </div>
-                    </div> */}
-
-                </div>
-
+            <div className={styles.resulting_tags_prompt}>
 
             </div>
 
-            {/* <div className={styles.document_upload}>
-                <DocumentUpload />
+            <div className={styles.inpt_section}>
+                <input className={styles.tags_inpt} />
+
+                <div className={styles.upload_icon}>
+
+                </div>
             </div>
 
-            <div className={styles.head}>
-                <div className={styles.img}>
+            <div className={styles.btn_section}>
+                <button className={styles.generate_btn}>Генерация</button>
+
+                <div className={styles.upload_icon}>
 
                 </div>
-                <div>
-                    BedroomPhoto.png
-                </div>
-                <div className={styles.generate_btn}>Сгенерировать</div>
-            </div> */}
+            </div>
         </div>
     )
 }
