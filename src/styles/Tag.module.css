@@ -1,34 +1,15 @@
 .tag {
-    padding: 6px 10px;
-    background-color: white;
+    padding: 8px 16px;
+    background-color: #FEF9F3;
 
-    border-radius: 8px;
-    border: 1px solid rgb(205, 205, 205);
+    border-radius: 4px;
 
     text-align: center;
-    height: 34px;
 
     white-space: nowrap;
     cursor: pointer;
-
-    display: flex;
-    gap: 8px;
-    align-items: center;
-
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 400;
-}
-
-.not_selected {
-    color: black;
 }
 
 .selected {
-    background-color: #ECFDF5;
-    color: #064E3B;
-
-    border: 1px solid #34bc98;
+    background-color: #EFA05E;
 }
-
-.icon {}

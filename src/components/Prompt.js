@@ -2,6 +2,7 @@ import styles from "@/styles/Prompt.module.css"
 import Tag from "./Tag"
 import { Collapse } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { useState } from "react";
 // import { Input } from 'antd';
 
 
@@ -11,16 +12,9 @@ const onChange = (key) => {
     console.log(key);
 };
 
-export default function Prompt({ selectTag }) {
+export default function Prompt() {
 
-    const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-    const menu_sections = [
-        "Стили", "Страны", "Комнаты", "Художники / дизайнеры", "Другое", "Прочее"
-    ]
+    const [resultingPromt, setResultingPrompt] = useState([])
 
     const tags = [
         {
@@ -66,8 +60,7 @@ export default function Prompt({ selectTag }) {
     ]
 
     const updateData = (value) => {
-        selectTag(value)
-        // setPromptTags(prv => new Set([...prv, value]));
+        setResultingPrompt([...resultingPromt, value]);
     }
 
     return (
@@ -78,7 +71,7 @@ export default function Prompt({ selectTag }) {
                         <Panel header={section.section_title} key={section.section_title}>
                             <div className={styles.tags}>
                                 {section.tags.map((tag) => (
-                                    <Tag key={tag} tag={tag} updateData={updateData} />
+                                    <Tag key={tag} tag={tag} updateData={updateData} isInitiallySelected={false} />
                                 ))}
                             </div>
                         </Panel>
@@ -87,7 +80,11 @@ export default function Prompt({ selectTag }) {
             </div>
 
             <div className={styles.resulting_tags_prompt}>
-
+                <div className={styles.tags}>
+                    {resultingPromt.map((tag) => (
+                        <Tag key={tag} tag={tag}/>
+                    ))}
+                </div>
             </div>
 
             <div className={styles.inpt_section}>
