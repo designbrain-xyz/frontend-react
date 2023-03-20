@@ -61,7 +61,7 @@
 
 
 .content {
-    width: 50%;
+    width: 40%;
     padding: 20px 20px;
     display: flex;
     flex-direction: column;
@@ -130,7 +130,7 @@
 
 .prompt {
     min-height: 100%;
-    width: 40%;
+    width: 50%;
     position: relative;
     display: flex;
     align-items: center;

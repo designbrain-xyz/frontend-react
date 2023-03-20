@@ -1,9 +1,8 @@
 .layout {
-    width: 100%;
-    height: 100vh;
-    display: flex;
+    min-width: 100%;
+    min-height: 100vh;
 
-    background-color: #E7EAEE;
+    padding: 0 120px;
 }
 
 .content {
