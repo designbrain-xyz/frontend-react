@@ -10,16 +10,36 @@ const onChange = (key) => {
 };
 
 
-export default function Home({tags}) {
+export default function Home({ tags }) {
     return (
         <div className={styles.layout}>
             <ServiceHeader />
-            <Tabs defaultActiveKey="4" onChange={onChange}>
-                <TabPane tab="По запросу" key="1"> <GenerationTool tags={tags}/> </TabPane>
-                <TabPane tab="Скетчинг" key="2"> <GenerationTool tags={tags}/> </TabPane>
-                <TabPane tab="До/после" key="3"> <GenerationTool tags={tags}/> </TabPane>
-                <TabPane  key="4"> Choose your work mode </TabPane>
-            </Tabs>
+
+            <Tabs
+                defaultActiveKey="4"
+                items={[
+                    {
+                        label: 'По запросу',
+                        key: '1',
+                        children: <GenerationTool tags={tags} />,
+                    },
+                    {
+                        label: 'Скетчинг',
+                        key: '2',
+                        children: <GenerationTool tags={tags} />,
+                        disabled: true,
+                    },
+                    {
+                        label: 'До/после',
+                        key: '3',
+                        children: <GenerationTool tags={tags} />,
+                    },
+                    {
+                        key: '4',
+                        children: "Choose your work mode",
+                    },
+                ]}
+            />
         </div>
     );
 }
@@ -28,8 +48,8 @@ export async function getServerSideProps() {
 
     const res = await fetch(API_URL + '/api')
     const tags = await res.json()
-  
+
     return {
-      props: {tags: tags}
+        props: { tags: tags }
     }
-  }
+}
