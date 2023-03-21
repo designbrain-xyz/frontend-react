@@ -1,9 +1,9 @@
 import styles from "@/styles/Resulting.module.css"
 
-export default function ResultingPromptTag({tag, updateData}) {
+export default function ResultingPromptTag({tag, updateData, section}) {
 
     const clickTag = () => {
-        updateData(tag)
+        updateData(tag, section)
     } 
 
     return (

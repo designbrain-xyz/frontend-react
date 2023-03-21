@@ -1,26 +1,17 @@
 import styles from "@/styles/Tag.module.css"
-import { AiOutlineCheck } from 'react-icons/ai'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export default function Tag({ tag, updateData, isInitiallySelected }) {
+export default function Tag({ tag, updateData, isSelected, section }) {
 
-    let initTagColor = isInitiallySelected ? styles.selected : styles.not_selected
+    const [tagColor, setTagColor] = useState(styles.not_selected)
 
-    const [isSelected, setIsSelected] = useState(isInitiallySelected)
-    const [tagColor, setTagColor] = useState(initTagColor)
+    useEffect(() => {
+        const updatedTagColor = isSelected ? styles.selected : styles.not_selected
+        setTagColor(updatedTagColor)
+    }, [isSelected]);
 
     const selectTag = () => {
-
-        if (updateData) {
-
-            let newSelectedState = isSelected ? false : true
-            let newTagColor = isSelected ? styles.not_selected : styles.selected
-
-            setIsSelected(newSelectedState)
-            setTagColor(newTagColor)
-
-            updateData(tag)
-        }
+        updateData(tag, section)
     }
 
     return (

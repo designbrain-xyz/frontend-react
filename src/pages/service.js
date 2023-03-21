@@ -9,212 +9,64 @@ const onChange = (key) => {
     console.log(key);
 };
 
+const sections = [
+    "Комнаты",
+    "Стили",
+    "Художники",
+    "Прочее"
+]
+
 const tags = [
-    {
-      "id": "1",
-      "section_title": "Комнаты",
-      "tags": [
-        {
-          "title": "Ванная",
-          "isSelected": false
-        },
-        {
-          "title": "Гостиная",
-          "isSelected": false
-        },
-        {
-          "title": "Детская",
-          "isSelected": false
-        },
-        {
-          "title": "Кабинет",
-          "isSelected": false
-        },
-        {
-          "title": "Офис",
-          "isSelected": false
-        },
-        {
-          "title": "Прихожая",
-          "isSelected": false
-        },
-        {
-          "title": "Спальня",
-          "isSelected": false
-        },
-        {
-          "title": "Холл",
-          "isSelected": false
-        },
-        {
-          "title": "Коридор",
-          "isSelected": false
-        },
-        {
-          "title": "Уборная",
-          "isSelected": false
-        },
-        {
-          "title": "Туалет",
-          "isSelected": false
-        },
-        {
-          "title": "Гардероб",
-          "isSelected": false
-        },
-        {
-          "title": "Библиотека",
-          "isSelected": false
-        },
-        {
-          "title": "Домашний кинотеатр",
-          "isSelected": false
-        },
-        {
-          "title": "Тренажерный зал",
-          "isSelected": false
-        },
-        {
-          "title": "Зимний сад",
-          "isSelected": false
-        },
-        {
-          "title": "Сауна",
-          "isSelected": false
-        }
-      ]
-    },
-    {
-      "id": "2",
-      "section_title": "Стили",
-      "tags": [
-        {
-          "title": "лофт",
-          "isSelected": false
-        },
-        {
-          "title": "модерн",
-          "isSelected": false
-        },
-        {
-          "title": "классика",
-          "isSelected": true
-        },
-        {
-          "title": "арт-деко",
-          "isSelected": false
-        },
-        {
-          "title": "хай-тек",
-          "isSelected": false
-        },
-        {
-          "title": "этно",
-          "isSelected": false
-        },
-        {
-          "title": "неоклассика",
-          "isSelected": true
-        },
-        {
-          "title": "прованс",
-          "isSelected": true
-        },
-        {
-          "title": "скандинавский",
-          "isSelected": false
-        },
-        {
-          "title": "эклектика",
-          "isSelected": false
-        },
-        {
-          "title": "экостиль",
-          "isSelected": false
-        },
-        {
-          "title": "современный",
-          "isSelected": false
-        },
-        {
-          "title": "американский",
-          "isSelected": false
-        },
-        {
-          "title": "английский",
-          "isSelected": false
-        },
-        {
-          "title": "арабский",
-          "isSelected": false
-        },
-        {
-          "title": "японский",
-          "isSelected": false
-        },
-        {
-          "title": "француский",
-          "isSelected": false
-        }
-      ]
-    },
-    {
-      "id": "3",
-      "section_title": "Художники",
-      "tags": [
-        {
-          "title": "Леонардо да Винчи",
-          "isSelected": false
-        },
-        {
-          "title": "Пабло Пикассо",
-          "isSelected": false
-        },
-        {
-          "title": "Сальвадор Дали",
-          "isSelected": false
-        },
-        {
-          "title": "Клод Моне",
-          "isSelected": false
-        },
-        {
-          "title": "Сандро Боттичелли",
-          "isSelected": false
-        },
-        {
-          "title": "Микеланджело Буонарроти",
-          "isSelected": false
-        },
-        {
-          "title": "Фрида Кало",
-          "isSelected": false
-        }
-      ]
-    },
-    {
-      "id": "4",
-      "section_title": "Прочее",
-      "tags": [
-        {
-          "title": "уютная атмосфера",
-          "isSelected": false
-        },
-        {
-          "title": "современный дизайн",
-          "isSelected": false
-        },
-        {
-          "title": "высокое качество",
-          "isSelected": false
-        },
-        {
-          "title": "цветочные мотивы",
-          "isSelected": false
-        }
-      ]
-    }
-  ]
+    { title: "Ванная", isSelected: false, section: "Комнаты" },
+    { title: "Гостиная", isSelected: false, section: "Комнаты" },
+    { title: "Детская", isSelected: false, section: "Комнаты" },
+    { title: "Кабинет", isSelected: false, section: "Комнаты" },
+    { title: "Офис", isSelected: false, section: "Комнаты" },
+    { title: "Прихожая", isSelected: false, section: "Комнаты" },
+    { title: "Спальня", isSelected: false, section: "Комнаты" },
+    { title: "Холл", isSelected: false, section: "Комнаты" },
+    { title: "Коридор", isSelected: false, section: "Комнаты" },
+    { title: "Уборная", isSelected: false, section: "Комнаты" },
+    { title: "Туалет", isSelected: false, section: "Комнаты" },
+    { title: "Гардероб", isSelected: false, section: "Комнаты" },
+    { title: "Библиотека", isSelected: false, section: "Комнаты" },
+    { title: "Домашний кинотеатр", isSelected: false, section: "Комнаты" },
+    { title: "Тренажерный зал", isSelected: false, section: "Комнаты" },
+    { title: "Зимний сад", isSelected: false, section: "Комнаты" },
+    { title: "Сауна", isSelected: false, section: "Комнаты" },
+
+
+    { title: "лофт", isSelected: false, section: "Стили" },
+    { title: "модерн", isSelected: false, section: "Стили" },
+    { title: "классика", isSelected: true, section: "Стили" },
+    { title: "арт-деко", isSelected: false, section: "Стили" },
+    { title: "хай-тек", isSelected: false, section: "Стили" },
+    { title: "этно", isSelected: false, section: "Стили" },
+    { title: "неоклассика", isSelected: true, section: "Стили" },
+    { title: "прованс", isSelected: true, section: "Стили" },
+    { title: "скандинавский", isSelected: false, section: "Стили" },
+    { title: "эклектика", isSelected: false, section: "Стили" },
+    { title: "экостиль", isSelected: false, section: "Стили" },
+    { title: "современный", isSelected: false, section: "Стили" },
+    { title: "американский", isSelected: false, section: "Стили" },
+    { title: "английский", isSelected: false, section: "Стили" },
+    { title: "арабский", isSelected: false, section: "Стили" },
+    { title: "японский", isSelected: false, section: "Стили" },
+    { title: "француский", isSelected: false, section: "Стили" },
+
+    { title: "Леонардо да Винчи", isSelected: false, section: "Художники" },
+    { title: "Пабло Пикассо", isSelected: false, section: "Художники" },
+    { title: "Сальвадор Дали", isSelected: false, section: "Художники" },
+    { title: "Клод Моне", isSelected: false, section: "Художники" },
+    { title: "Сандро Боттичелли", isSelected: false, section: "Художники" },
+    { title: "Микеланджело Буонарроти", isSelected: false, section: "Художники" },
+    { title: "Фрида Кал", isSelected: false, section: "Художники" },
+
+    { title: "уютная атмосфера", isSelected: false, section: "Прочее" },
+    { title: "современный дизайн", isSelected: false, section: "Прочее" },
+    { title: "высокое качество", isSelected: false, section: "Прочее" },
+    { title: "цветочные мотивы", isSelected: false, section: "Прочее" },
+]
 
 export default function Home() {
     return (
@@ -227,18 +79,18 @@ export default function Home() {
                     {
                         label: 'По запросу',
                         key: '1',
-                        children: <GenerationTool tags={tags} />,
+                        children: <GenerationTool serverTags={tags} serverSections={sections}/>,
                     },
                     {
                         label: 'Скетчинг',
                         key: '2',
-                        children: <GenerationTool tags={tags} />,
+                        children: <GenerationTool serverTags={tags} serverSections={sections} />,
                         disabled: true,
                     },
                     {
                         label: 'До/после',
                         key: '3',
-                        children: <GenerationTool tags={tags} />,
+                        children: <GenerationTool serverTags={tags} serverSections={sections} />,
                     },
                     {
                         key: '4',

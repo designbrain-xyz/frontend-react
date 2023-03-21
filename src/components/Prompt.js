@@ -11,36 +11,68 @@ const onChange = (key) => {
     console.log(key);
 };
 
-export default function Prompt({ tags }) {
+export default function Prompt({ serverTags, serverSections }) {
 
-    console.log(tags)
-    const [resultingPromt, setResultingPrompt] = useState(["классика", "неоклассика", "прованс"])
+    const [tags, setTags] = useState(serverTags)
+    const [tagSections, setTagSections] = useState(serverSections)
 
-    const updateData = (tag) => {
-        const tagIndex = resultingPromt.indexOf(tag)
+    const [resultingPromt, setResultingPrompt] =
+        useState([
+            {
+                title: "классика",
+                section: "Стили"
+            },
+            {
+                title: "неоклассика",
+                section: "Стили"
+            },
+            {
+                title: "прованс",
+                section: "Стили"
+            }
+        ])
+
+    const updateData = (tag, section) => {
+
+        const tagIndexAmongAll = tags.findIndex(t => t.title === tag);
+        const isSelected = tags[tagIndexAmongAll].isSelected
+
+        const updatedIsSelected = tags[tagIndexAmongAll].isSelected ? false:true
+        const updatedTags = [...tags]; 
+        updatedTags[tagIndexAmongAll].isSelected = updatedIsSelected
+
+        
+        setTags(updatedTags);
+
+        const tagIndex = resultingPromt.findIndex(t => t.title === tag);
 
         if (tagIndex != -1) {
             setResultingPrompt([
                 ...resultingPromt.slice(0, tagIndex),
                 ...resultingPromt.slice(tagIndex + 1)]);
         } else {
-            setResultingPrompt([...resultingPromt, tag])
+            setResultingPrompt([...resultingPromt, { "title": tag, "section": section }])
         };
+
+        console.log(tags)
+        console.log(resultingPromt)
     }
 
     return (
         <div>
             <div className={styles.clue_tags_container}>
-                <Collapse defaultActiveKey={['2']} onChange={onChange}>
-                    {tags.map((section) => (
-                        <Panel header={section.section_title} key={section.id}>
+                <Collapse defaultActiveKey={['Стили']} onChange={onChange}>
+                    {tagSections.map((section) => (
+                        <Panel header={section} key={section}>
                             <div className={styles.tags}>
-                                {section.tags.map((tag) => (
+                                {tags.map((tag) => (
+                                    (tag.section === section) &&
                                     <Tag
                                         key={tag.title}
                                         tag={tag.title}
+                                        section={section.section_title}
                                         updateData={updateData}
-                                        isInitiallySelected={tag.isSelected}
+                                        isSelected={tag.isSelected}
                                     />
                                 ))}
                             </div>
@@ -53,8 +85,9 @@ export default function Prompt({ tags }) {
                 <div className={styles.tags}>
                     {resultingPromt.map((tag) => (
                         <ResultingPromptTag
-                            key={tag}
-                            tag={tag}
+                            key={tag.title}
+                            tag={tag.title}
+                            section={tag.section}
                             updateData={updateData} />
                     ))}
                 </div>
