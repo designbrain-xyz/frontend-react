@@ -2,10 +2,12 @@ import styles from "@/styles/Tag.module.css"
 import { AiOutlineCheck } from 'react-icons/ai'
 import { useState } from "react"
 
-export default function Tag({tag, updateData }) {
-    
-    const [isSelected, setIsSelected] = useState(false)
-    const [tagColor, setTagColor] = useState(styles.not_selected)
+export default function Tag({ tag, updateData, isInitiallySelected }) {
+
+    let initTagColor = isInitiallySelected ? styles.selected : styles.not_selected
+
+    const [isSelected, setIsSelected] = useState(isInitiallySelected)
+    const [tagColor, setTagColor] = useState(initTagColor)
 
     const selectTag = () => {
 
@@ -22,7 +24,8 @@ export default function Tag({tag, updateData }) {
     }
 
     return (
-        <div className={[styles.tag, tagColor].join(' ')} onClick={selectTag}>
+        <div
+            className={[styles.tag, tagColor].join(' ')} onClick={selectTag}>
             {tag}
         </div>
     )
