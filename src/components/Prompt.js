@@ -3,6 +3,7 @@ import Tag from "./Tag"
 import { Collapse } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useState } from "react";
+import ResultingPromptTag from "./ResultingPromptTag";
 // import { Input } from 'antd';
 
 
@@ -59,8 +60,16 @@ export default function Prompt() {
         }
     ]
 
-    const updateData = (value) => {
-        setResultingPrompt([...resultingPromt, value]);
+    const updateData = (tag) => {
+        const tagIndex = resultingPromt.indexOf(tag)
+
+        if (tagIndex != -1) {
+            setResultingPrompt([
+                ...resultingPromt.slice(0, tagIndex), 
+                ...resultingPromt.slice(tagIndex + 1)]);
+        } else {
+            setResultingPrompt([...resultingPromt, tag])
+        };
     }
 
     return (
@@ -82,7 +91,8 @@ export default function Prompt() {
             <div className={styles.resulting_tags_prompt}>
                 <div className={styles.tags}>
                     {resultingPromt.map((tag) => (
-                        <Tag key={tag} tag={tag}/>
+                        <ResultingPromptTag>{tag}</ResultingPromptTag>
+                        // <Tag key={tag} tag={tag}/>
                     ))}
                 </div>
             </div>
