@@ -91,8 +91,9 @@ export default function Prompt() {
             <div className={styles.resulting_tags_prompt}>
                 <div className={styles.tags}>
                     {resultingPromt.map((tag) => (
-                        <ResultingPromptTag>{tag}</ResultingPromptTag>
-                        // <Tag key={tag} tag={tag}/>
+                        <ResultingPromptTag 
+                        tag={tag}
+                        updateData={updateData} />
                     ))}
                 </div>
             </div>
