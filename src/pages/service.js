@@ -46,7 +46,7 @@ export default function Home({ tags }) {
 
 export async function getServerSideProps() {
 
-    const res = await fetch(API_URL + '/api')
+    const res = await fetch('/api')
     const tags = await res.json()
 
     return {
