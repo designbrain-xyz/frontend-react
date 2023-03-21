@@ -4,6 +4,7 @@ import styles from "@/styles/Service.module.css"
 import { API_URL } from '@/config/index'
 
 import { Tabs, TabPane } from 'antd';
+import Layout from "@/components/Layout";
 
 const onChange = (key) => {
     console.log(key);
@@ -70,35 +71,35 @@ const tags = [
 
 export default function Home() {
     return (
-        <div className={styles.layout}>
-            <ServiceHeader />
-
-            <Tabs
-                defaultActiveKey="4"
-                items={[
-                    {
-                        label: 'По запросу',
-                        key: '1',
-                        children: <GenerationTool serverTags={tags} serverSections={sections}/>,
-                    },
-                    {
-                        label: 'Скетчинг',
-                        key: '2',
-                        children: <GenerationTool serverTags={tags} serverSections={sections} />,
-                        disabled: true,
-                    },
-                    {
-                        label: 'До/после',
-                        key: '3',
-                        children: <GenerationTool serverTags={tags} serverSections={sections} />,
-                    },
-                    {
-                        key: '4',
-                        children: "Choose your work mode",
-                    },
-                ]}
-            />
-        </div>
+        <Layout>
+            <div className={styles.layout}>
+                <Tabs
+                    defaultActiveKey="4"
+                    items={[
+                        {
+                            label: 'По запросу',
+                            key: '1',
+                            children: <GenerationTool serverTags={tags} serverSections={sections} />,
+                        },
+                        {
+                            label: 'Скетчинг',
+                            key: '2',
+                            children: <GenerationTool serverTags={tags} serverSections={sections} />,
+                            disabled: true,
+                        },
+                        {
+                            label: 'До/после',
+                            key: '3',
+                            children: <GenerationTool serverTags={tags} serverSections={sections} />,
+                        },
+                        {
+                            key: '4',
+                            children: "Choose your work mode",
+                        },
+                    ]}
+                />
+            </div>
+        </Layout>
     );
 }
 
