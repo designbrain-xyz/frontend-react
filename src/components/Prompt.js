@@ -36,15 +36,12 @@ export default function Prompt({ tags }) {
                         <Panel header={section.section_title} key={section.id}>
                             <div className={styles.tags}>
                                 {section.tags.map((tag) => (
-                                    <>
-                                        {/* <div>{String(tag.isSelected)}</div> */}
-                                        <Tag
-                                            key={tag.title}
-                                            tag={tag.title}
-                                            updateData={updateData}
-                                            isInitiallySelected={tag.isSelected}
-                                        />
-                                    </>
+                                    <Tag
+                                        key={tag.title}
+                                        tag={tag.title}
+                                        updateData={updateData}
+                                        isInitiallySelected={tag.isSelected}
+                                    />
                                 ))}
                             </div>
                         </Panel>
