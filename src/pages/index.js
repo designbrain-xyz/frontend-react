@@ -43,7 +43,7 @@ export default function Home() {
                 </div>
 
             </div>
-            <div className={styles.showcases}>
+            {/* <div className={styles.showcases}>
                 <div className={styles.showcase}>
                     <ImageSlider />
                 </div>
@@ -53,7 +53,7 @@ export default function Home() {
                 <div className={styles.showcase}>
                     <ImageSlider />
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
