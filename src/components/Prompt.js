@@ -35,14 +35,14 @@ export default function Prompt({ serverTags, serverSections }) {
     const updateData = (tag, section) => {
 
         const tagIndexAmongAll = tags.findIndex(t => t.title === tag);
-        const isSelected = tags[tagIndexAmongAll].isSelected
 
-        const updatedIsSelected = tags[tagIndexAmongAll].isSelected ? false:true
-        const updatedTags = [...tags]; 
-        updatedTags[tagIndexAmongAll].isSelected = updatedIsSelected
+        if (tagIndexAmongAll != -1) {
+            const updatedIsSelected = tags[tagIndexAmongAll].isSelected ? false : true
+            const updatedTags = [...tags];
+            updatedTags[tagIndexAmongAll].isSelected = updatedIsSelected
 
-        
-        setTags(updatedTags);
+            setTags(updatedTags);
+        }
 
         const tagIndex = resultingPromt.findIndex(t => t.title === tag);
 
@@ -56,6 +56,21 @@ export default function Prompt({ serverTags, serverSections }) {
 
         console.log(tags)
         console.log(resultingPromt)
+    }
+
+    const inputCustomTag = (event) => {
+        if (event.key === 'Enter') {
+
+            const newTag = event.target.value
+            const tagIndex = resultingPromt.findIndex(t => t.title === newTag);
+
+            if (tagIndex != -1) {
+            } else {
+                setResultingPrompt([...resultingPromt,
+                { title: newTag, section: "custom", isSelected: true }
+                ])
+            };
+        }
     }
 
     return (
@@ -94,7 +109,8 @@ export default function Prompt({ serverTags, serverSections }) {
             </div>
 
             <div className={styles.inpt_section}>
-                <input className={styles.tags_inpt} />
+                <input className={styles.tags_inpt}
+                    onKeyDown={inputCustomTag} />
 
                 <div className={styles.upload_icon}>
 
