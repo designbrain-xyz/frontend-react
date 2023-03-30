@@ -89,22 +89,20 @@ const serverTags = [
     { title: "floral motifs", isSelected: false, section: "Other" },
 ]
 
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export default function GenerationTool({ mode }) {
+export default function SketchTool() {
 
     const [prediction, setPrediction] = useState(null);
 
-    const generate = (prompt, imageUrl) => {
-        handleSubmit(prompt, imageUrl)
-    }
+    const sketching = async (prompt, imageUrl) => {
 
-    const handleSubmit = async (prompt, imageUrl) => {
-        const api = "/api/predictions"
+        const api = "/api/img2img"
         const body = JSON.stringify({
             prompt: prompt,
+            image: imageUrl
         })
-
 
         const response = await fetch(api, {
             method: "POST",
@@ -147,10 +145,10 @@ export default function GenerationTool({ mode }) {
         <div className={styles.generation_tool}>
             <div className={styles.prompt_container}>
                 <Prompt
-                    generate={generate}
+                    generate={sketching}
                     serverTags={serverTags}
                     serverSections={serverSections}
-                    mode={'Generate'}
+                    mode={'Sketching'}
                     prediction={prediction}
                 />
             </div>

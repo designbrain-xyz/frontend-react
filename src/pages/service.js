@@ -1,14 +1,10 @@
 import GenerationTool from "@/components/GenerationTool";
-import ServiceHeader from "@/components/ServiceHeader";
+import SketchTool from "@/components/SketchTool";
+import StylingTool from "@/components/StylingTool"
 import styles from "@/styles/Service.module.css"
-import { API_URL } from '@/config/index'
 
-import { Tabs, TabPane } from 'antd';
+import { Tabs } from 'antd';
 import Layout from "@/components/Layout";
-
-const onChange = (key) => {
-    console.log(key);
-};
 
 const sections = [
     "Rooms",
@@ -106,17 +102,17 @@ export default function Home() {
                         {
                             label: 'Generation',
                             key: '1',
-                            children: <GenerationTool serverTags={tags} serverSections={sections} mode="Generate" />,
+                            children: <GenerationTool mode="Generate" />,
                         },
                         {
                             label: 'Sketching',
                             key: '2',
-                            children: <GenerationTool serverTags={tags} serverSections={sections} mode="Sketching" />,
+                            children: <SketchTool />,
                         },
                         {
                             label: 'Styling',
                             key: '3',
-                            children: <GenerationTool serverTags={tags} serverSections={sections} mode="Styling" />,
+                            children: <StylingTool mode="Styling" />,
                         },
 
                     ]}

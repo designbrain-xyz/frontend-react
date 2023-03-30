@@ -3,8 +3,6 @@ import Tag from "./Tag"
 import { Collapse } from 'antd';
 import { useRef, useState } from "react";
 import ResultingPromptTag from "./ResultingPromptTag";
-import UploadIcon from "./UploadIcon";
-import ToolIcon from "./ToolIcon";
 import { Popover } from 'antd';
 
 import { Modal, Upload } from 'antd';
@@ -34,7 +32,7 @@ const onChange = (key) => {
     console.log(key);
 };
 
-export default function Prompt({ generate, serverTags, serverSections, mode }) {
+export default function Prompt({ generate, serverTags, serverSections, mode, prediction }) {
 
     const [tags, setTags] = useState(serverTags)
     const [tagSections, setTagSections] = useState(serverSections)
@@ -83,6 +81,8 @@ export default function Prompt({ generate, serverTags, serverSections, mode }) {
 
     const updateData = (tag, section) => {
 
+        console.log("Resulting Prompt 1", resultingPromt)
+
         const tagIndexAmongAll = tags.findIndex(t => t.title === tag);
 
         if (tagIndexAmongAll != -1) {
@@ -103,8 +103,7 @@ export default function Prompt({ generate, serverTags, serverSections, mode }) {
             setResultingPrompt([...resultingPromt, { "title": tag, "section": section }])
         };
 
-        console.log(tags)
-        console.log(resultingPromt)
+        console.log("Resulting Prompt 2", resultingPromt)
     }
 
     const inputCustomTag = (event) => {
@@ -191,9 +190,9 @@ export default function Prompt({ generate, serverTags, serverSections, mode }) {
 
             <div className={styles.btn_section}>
 
-                {mode != "Generate" && !imageUrl &&
+                {(mode != "Generate" && !imageUrl) &&
 
-                    <Popover title="Please upload photo">
+                    <Popover title="Please upload photo up to 2MB">
                         <button
                             className={styles.generate_btn_disabled}
                         >GENERATE
@@ -201,6 +200,7 @@ export default function Prompt({ generate, serverTags, serverSections, mode }) {
 
                     </Popover>
                 }
+
                 {(mode == "Generate" || imageUrl) &&
 
                     < button
