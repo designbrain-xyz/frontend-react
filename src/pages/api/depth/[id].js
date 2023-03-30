@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     "https://api.replicate.com/v1/predictions/" + req.query.id,
     {
       headers: {
-        Authorization: `Token 68f699d395bc7c17008283a7cef6d92edc832d8dc59eb41a6cafec7fc70b85bc`,
+        Authorization: `Token a3550ac8db5fe7fc5b7b02a1c8f7ac5723dbc6d3`,
         "Content-Type": "application/json",
       },
     }
