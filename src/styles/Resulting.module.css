@@ -1,0 +1,15 @@
+.tag {
+    padding: 8px 16px;
+     background-color: #EFA05E;
+
+    border-radius: 4px;
+
+    text-align: center;
+
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #EFA05E;
+}

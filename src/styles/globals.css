@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
+
+.swiper-button-prev::after, .swiper-button-next::after {
+    color: #000000;
+}
+
+
+.ant-collapse-item{
+    background-color:#FFE3CC !important;
+    margin-bottom: 8px !important;
+    border-radius: 4px !important;
+}
+
+.ant-collapse  {
+    border: none !important;
+    border-radius: 4px;
+    background-color: white !important;
+}
+
+.ant-collapse-content {
+    border: none !important;
+}
+
+.ant-upload-wrapper {
+    max-width: 40px !important;
+    max-height: 40px !important;
+}
+
+.upload, .ant-upload, .ant-upload-list-item {
+    max-width: 64px !important;
+    max-height: 64px !important;
+}
+
+.ant-upload, .ant-upload-select {
+    transition: none !important;
+    transition-duration: 0s !important;
+
+    animation-duration: 0s !important;
+}

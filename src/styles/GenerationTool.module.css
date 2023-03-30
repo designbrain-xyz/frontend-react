@@ -1,0 +1,32 @@
+.generation_tool {
+    display: flex;
+    padding: 20px 0px;
+    gap: 15px;
+}
+
+.prompt_container {
+    width: 50%;
+    max-width: 50%;
+}
+
+.result_container {
+    width: 50%;
+    max-width: 50%;
+}
+
+@media (max-width: 600px) {
+    .generation_tool {
+        flex-direction: column;
+    }
+
+    .prompt_container {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .result_container {
+        width: 100%;
+        min-width: 100%;
+    }
+
+}
