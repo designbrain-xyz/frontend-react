@@ -190,8 +190,10 @@ export default function Prompt({ generate, serverTags, serverSections, mode, pre
 
             <div className={styles.btn_section}>
 
-                {(mode != "Generate" && !imageUrl) &&
 
+                {(mode != "Generate" && !imageUrl ||
+                    (prediction != null && prediction.status !== "succeeded" &&
+                        prediction.status !== "failed")) ? (
                     <Popover title="Please upload photo up to 2MB">
                         <button
                             className={styles.generate_btn_disabled}
@@ -199,16 +201,14 @@ export default function Prompt({ generate, serverTags, serverSections, mode, pre
                         </button>
 
                     </Popover>
+                ) : (< button
+                    className={styles.generate_btn}
+                    onClick={generateRequest}
+                >GENERATE
+                </button>)
                 }
 
-                {(mode == "Generate" || imageUrl) &&
 
-                    < button
-                        className={styles.generate_btn}
-                        onClick={generateRequest}
-                    >GENERATE
-                    </button>
-                }
 
                 {/* <div className={styles.tool_icon}>
                     <ToolIcon />
