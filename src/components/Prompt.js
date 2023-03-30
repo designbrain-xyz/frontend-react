@@ -127,7 +127,7 @@ export default function Prompt({ generate, serverTags, serverSections, mode }) {
         const request_array = resultingPromt.map((item) => { return item.title })
         const request_string = request_array.join(", ")
 
-        generate(request_string, imageUrl)
+        generate(request_string, imageUrl, mode)
     }
 
     return (

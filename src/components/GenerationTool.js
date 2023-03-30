@@ -20,17 +20,28 @@ export default function GenerationTool({ serverTags, serverSections, mode }) {
         let api = ""
         let body = {}
 
-        if (!imageUrl) {
+        console.log(mode)
+
+        if (mode == 'Generate') {
             api = "/api/predictions",
-            body = JSON.stringify({
-                prompt: prompt,
-            })
-        } else {
+                body = JSON.stringify({
+                    prompt: prompt,
+                })
+        }
+        if (mode == 'Sketching') {
             api = "/api/img2img",
-            body = JSON.stringify({
-                prompt: prompt,
-                image: imageUrl
-            })
+                body = JSON.stringify({
+                    prompt: prompt,
+                    image: imageUrl
+                })
+        }
+
+        if (mode == 'Styling') {
+            api = "/api/depth",
+                body = JSON.stringify({
+                    prompt: prompt,
+                    image: imageUrl
+                })
         }
 
         console.log("api: ", api)
